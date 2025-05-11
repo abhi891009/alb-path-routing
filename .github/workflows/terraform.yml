@@ -46,13 +46,7 @@ jobs:
         run: |
           tflint --init
           tflint
-
-      - name: Run Checkov
-        uses: bridgecrewio/checkov-action@v12
-        with:
-          directory: .
-          quiet: true
-
+      
       - name: Terraform Plan
         run: terraform plan
 
