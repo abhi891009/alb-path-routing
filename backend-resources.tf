@@ -1,14 +1,15 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = var.s3_bucket
-  force_destroy = true
-  
-  versioning {
-    enabled = true
-  }
-  logging {
-    target_bucket = "my-logging-bucket"
-    target_prefix = "log/"
+  bucket = "my-terraform-state1-bucket1-123456"
 }
+
+resource "aws_s3_bucket_versioning" "terraform_state_versioning" {
+  bucket = aws_s3_bucket.terraform_state.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
 
   tags = {
     Name        = "Terraform State Bucket"
