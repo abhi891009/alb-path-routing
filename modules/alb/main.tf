@@ -96,7 +96,8 @@ resource "aws_lb_listener_rule" "register" {
   }
 
   condition {
-    field  = "path-pattern"
+    path_pattern {
     values = ["/register"]
   }
+}
 }
