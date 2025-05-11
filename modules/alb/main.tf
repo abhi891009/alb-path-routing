@@ -31,18 +31,20 @@ resource "aws_lb_listener" "http" {
 
   default_action {
     type = "fixed-response"
+
     fixed_response {
       content_type = "text/plain"
       message_body = "Not Found"
       status_code  = "404"
-   _target_group" "root" {
+    }
+  }
+}
+
+resource "aws_lb_target_group" "root" {
   name     = "root-targets"
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id
-       }
-     }
-   }
 }
 
 resource "aws_lb_target_group" "images" {
