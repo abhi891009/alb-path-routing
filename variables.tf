@@ -23,10 +23,10 @@ variable "instance_type" {
   type        = string
 }
 
-#variable "s3_bucket" {
-  #description = "Name of the S3 bucket for Terraform state"
- # type        = string
-#}
+variable "s3_bucket" {
+  description = "Name of the S3 bucket for Terraform state"
+  type        = string
+}
 
 variable "dynamodb_table" {
   description = "Name of the DynamoDB table for state locking"
