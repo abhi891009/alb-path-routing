@@ -6,7 +6,7 @@ resource "aws_instance" "web" {
   security_groups = [var.alb_security_group_id]
 
   
-user_data = <<-EOF
+  user_data = <<-EOF
               #!/bin/bash
               apt update -y
               apt install -y nginx
@@ -14,5 +14,7 @@ user_data = <<-EOF
               systemctl start nginx
               systemctl enable nginx
               EOF
+  tags = {
+    Name = "WebServer-${count.index + 1}"
   }
 }
