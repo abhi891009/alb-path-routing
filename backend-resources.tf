@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "my-terraform-state1-bucket1-123456"
+  bucket = "my-terraform-state12-bucket12-123456"
 }
 
 resource "aws_s3_bucket_versioning" "terraform_state_versioning" {
@@ -20,7 +20,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
   }
 }
 
-resource "aws_dynamodb_table" "terraform_locks" {
+/*resource "aws_dynamodb_table" "terraform_locks" {
   name         = var.dynamodb_table
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
@@ -34,4 +34,4 @@ resource "aws_dynamodb_table" "terraform_locks" {
     Name        = "Terraform Lock Table"
     Environment = "dev"
   }
-}
+}*/
