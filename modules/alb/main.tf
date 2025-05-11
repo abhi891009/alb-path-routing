@@ -72,7 +72,7 @@ resource "aws_lb_listener_rule" "root" {
     path_pattern {
       values = ["/"]
   }
-}
+ }
 }
 
 resource "aws_lb_listener_rule" "images" {
@@ -86,7 +86,7 @@ resource "aws_lb_listener_rule" "images" {
     path_pattern {
     values = ["/images"]
   }
-}
+ }
 }
 resource "aws_lb_listener_rule" "register" {
   listener_arn = aws_lb_listener.http.arn
@@ -99,5 +99,5 @@ resource "aws_lb_listener_rule" "register" {
     path_pattern {
     values = ["/register"]
   }
-}
+ }
 }
