@@ -83,11 +83,11 @@ resource "aws_lb_listener_rule" "images" {
   }
 
   condition {
-    field  = "path-pattern"
+    path_pattern {
     values = ["/images"]
   }
 }
-
+}
 resource "aws_lb_listener_rule" "register" {
   listener_arn = aws_lb_listener.http.arn
   action {
