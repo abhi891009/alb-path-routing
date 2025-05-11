@@ -69,9 +69,10 @@ resource "aws_lb_listener_rule" "root" {
   }
 
   condition {
-    field  = "path-pattern"
-    values = ["/"]
+    path_pattern {
+      values = ["/"]
   }
+}
 }
 
 resource "aws_lb_listener_rule" "images" {
