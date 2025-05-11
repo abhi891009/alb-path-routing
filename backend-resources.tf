@@ -8,15 +8,7 @@ resource "aws_s3_bucket_versioning" "terraform_state_versioning" {
   versioning_configuration {
     status = "Enabled"
   }
-  tags = {
-    Name        = "Terraform State Bucket"
-    Environment = "dev"
-  }
 }
-
-
-  
-
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
   bucket = aws_s3_bucket.terraform_state.bucket
