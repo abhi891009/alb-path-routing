@@ -4,6 +4,7 @@ resource "aws_instance" "web" {
   instance_type = var.instance_type
   subnet_id     = element(var.subnet_ids, count.index)
   security_groups = [var.alb_security_group_id]
+  associate_public_ip_address = true  
 
   
   user_data = <<-EOF
