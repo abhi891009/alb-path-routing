@@ -75,7 +75,7 @@ resource "aws_lb_listener_rule" "root" {
  }
 }
 
-resource "aws_lb_listener_rule" "image" {
+resource "aws_lb_listener_rule" "images" {
   listener_arn = aws_lb_listener.http.arn
   action {
     type             = "forward"
@@ -84,7 +84,7 @@ resource "aws_lb_listener_rule" "image" {
 
   condition {
     path_pattern {
-    values = ["/image"]
+    values = ["/images*"]
   }
  }
 }
