@@ -70,7 +70,7 @@ resource "aws_lb_listener_rule" "root" {
 
   condition {
     path_pattern {
-      values = ["/"]
+      values = ["/*"]
   }
  }
 }
