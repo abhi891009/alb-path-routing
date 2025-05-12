@@ -12,6 +12,13 @@ resource "aws_instance" "web" {
               apt update -y
               apt install -y nginx
               echo 'Hello from EC2 instance ${count.index + 1}' > /var/www/html/index.html
+
+              mkdir -p /var/www/html/images
+              echo 'Hello from /images path on EC2 instance ${count.index + 1}' > /var/www/html/images/index.html
+
+              mkdir -p /var/www/html/register
+              echo 'Hello from /register path on EC2 instance ${count.index + 1}' > /var/www/html/register/index.html
+
               systemctl start nginx
               systemctl enable nginx
               EOF
