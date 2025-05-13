@@ -50,16 +50,30 @@ module "asg_homepage" {
 }
 
 module "asg_images" {
-  source           = "./modules/asg"
-  name             = "images-service"
-  user_data        = file("${path.module}/scripts/user_data_images.sh")
-  target_group_arn = aws_lb_target_group.images.arn
+  source              = "./modules/asg"
+  ami_id              = var.ami_id
+  instance_type       = var.instance_type
+  subnet_ids          = var.subnet_ids
+  alb_security_group_id = aws_security_group.alb.id
+  min_size            = 1
+  max_size            = 3
+  desired_capacity    = 2
+  user_data           = file("${path.module}/scripts/user_data_images.sh")
+  target_group_arns   = [aws_lb_target_group.images.arn]
 }
 
-module "asg_register" {
-  source           = "./modules/asg"
-  name             = "register-service"
-  user_data        = file("${path.module}/scripts/user_data_register.sh")
-  target_group_arn = aws_lb_target_group.register.arn
+
+module "asg_images" {
+  source              = "./modules/asg"
+  ami_id              = var.ami_id
+  instance_type       = var.instance_type
+  subnet_ids          = var.subnet_ids
+  alb_security_group_id = aws_security_group.alb.id
+  min_size            = 1
+  max_size            = 3
+  desired_capacity    = 2
+  user_data           = file("${path.module}/scripts/user_data_register.sh")
+  target_group_arns   = [aws_lb_target_group.register.arn]
 }
+
 
