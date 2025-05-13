@@ -63,7 +63,7 @@ module "asg_images" {
 }
 
 
-module "asg_images" {
+module "asg_register" {
   source              = "./modules/asg"
   ami_id              = var.ami_id
   instance_type       = var.instance_type
