@@ -43,6 +43,7 @@ module "asg_homepage" {
   instance_type     = var.instance_type
   user_data         = file("scripts/homepage.sh")
   subnet_ids        = var.subnet_ids
+  vpc_security_group_ids = [var.alb_security_group_id]
   target_group_arns = [module.alb.homepage_target_group_arn]
   desired_capacity  = 1
   max_size          = 2

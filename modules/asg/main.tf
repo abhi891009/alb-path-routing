@@ -16,7 +16,6 @@ resource "aws_autoscaling_group" "example" {
   min_size             = var.min_size
   vpc_zone_identifier  = var.subnet_ids
   target_group_arns    = var.target_group_arns
-  vpc_security_group_ids = [var.alb_security_group_id]
 
   launch_template {
     id      = aws_launch_template.example.id
