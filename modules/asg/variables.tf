@@ -38,3 +38,7 @@ variable "min_size" {
   type        = number
 }
 
+variable "alb_security_group_id" {
+  description = "Security group ID to attach to instances"
+  type        = string
+}
